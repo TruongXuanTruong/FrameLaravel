@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,25 +68,16 @@ Route::get('/', function () {
 // })->where(['id' => '[0-9]+', 'slug' => '[A-Za-z0-9-_]+']);
 
 
-// //Định tuyến qua một view
+//Định tuyến qua một view
 // Route::view('welcome', 'welcome');
 
-Route::view('/post', 'post', ['id' => 20]);
+// Route::view('/post', 'post', ['id' => 20]);
 
 // //Định tuyến qua Controller
 // Route::get('/post/{id}', [PostController::class, 'detail']);
+Route::get('/product/show/{id}', [ProductController::class, 'show']);
+Route::get('/product/create', [ProductController::class, 'create']);
+Route::get('/product/update/{id}', [ProductController::class, 'update']);
 
-//Bài tập 39 - quản lý bài viết trong admin
+Route::resource('post', PostController::class);
 
-Route::get('admin/post/add', function(){
-    return "Admin: thêm bài viết";
-});
-Route::get('admin/post/update/{id}', function($id){
-    return "Admin: Cập nhật bài viết có id{$id}";
-});
-Route::get('admin/post/show', function(){
-    return "Admin: Hiển thị danh sách bài viết";
-});
-Route::get('admin/post/delete/{id}', function($id){
-    return "Admin: Xóa bài viết có id {$id}";
-});

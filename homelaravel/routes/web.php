@@ -87,7 +87,7 @@ Route::get('/', function () {
 
 // Route::get('child', function(){
 //     return view('child',['data' => 21]);
-// });
+// });s
 
 Route::get('demo', function(){
     $users = array(

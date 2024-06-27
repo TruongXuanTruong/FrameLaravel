@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminPostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,9 +77,30 @@ Route::get('/', function () {
 
 // //Định tuyến qua Controller
 // Route::get('/post/{id}', [PostController::class, 'detail']);
-Route::get('/product/show/{id}', [ProductController::class, 'show']);
-Route::get('/product/create', [ProductController::class, 'create']);
-Route::get('/product/update/{id}', [ProductController::class, 'update']);
+// Route::get('/product/show/{id}', [ProductController::class, 'show']);
+// Route::get('/product/create', [ProductController::class, 'create']);
+// Route::get('/product/update/{id}', [ProductController::class, 'update']);
 
-Route::resource('post', PostController::class);
+// Route::resource('post', PostController::class);
+
+// Route::get('admin/post/show', [AdminPostController::class, 'show']);
+
+// Route::get('child', function(){
+//     return view('child',['data' => 21]);
+// });
+
+Route::get('demo', function(){
+    $users = array(
+        1 => array(
+            'name' => 'Trương Xuân Trường'
+        ),
+        2 => array(
+            'name' => 'Hoàng Anh'
+        ),
+        3 => array(
+            'name' => 'Hoàng'
+        ),
+    );
+    return view('demo', compact('users'));
+});
 

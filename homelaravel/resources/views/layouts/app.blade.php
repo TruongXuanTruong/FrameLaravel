@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Trang Sản Phẩm</title>
+        <title>@yield('Xuân Trường')</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+
         <!-- Bootstrap CSS v5.2.1 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -16,7 +17,24 @@
             crossorigin="anonymous"
         />
     </head>
+
     <body>
-        <h1>Trang sản phẩm</h1>
+        <div id="warpper">
+            <div id="header">
+                <h1>Header</h1>
+            </div>
+            <div id="wp-content">
+                <div id="content">
+                    @yield('content')
+                </div>
+                <div id="sidebar">
+                    @section('sidebar')
+                    @show
+                </div>
+            </div>
+            <div id="footer">
+                <h1>Footer</h1>
+            </div>
+        </div>
     </body>
 </html>

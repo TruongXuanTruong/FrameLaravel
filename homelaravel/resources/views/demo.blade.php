@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'Demo Page')
 
@@ -14,12 +14,12 @@
 @section('sidebar')
     @parent
     <p>Phần mở rộng của sidebar.</p>
-@endsection --}}
+@endsection
 
 @include('inc.new',['title' =>'New page'])
 
-{{-- @php
+@php
     foreach($users as $id => $user){
         echo $user['name'],'<br>';
     }
-@endphp --}}
+@endphp

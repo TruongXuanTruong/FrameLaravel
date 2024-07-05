@@ -38,9 +38,15 @@ Route::get('demo', function(){
 });
 // Route::get('users/insert',function(){
 //     DB::table('users')->insert(
-//         ['name' => 'Trương Xuân Trường','email' => 'xuantruong28x@gmail.com','password' => bcrypt('truong')]
+//         ['name' => 'Trần Anh','email' => 'trananh22@gmail.com','password' => bcrypt('truong')]
 //     );
 // });
 Route::get('posts/add',[PostController::class, 'add']);
 Route::get('posts/show',[PostController::class,'show']);
+Route::get('posts/update',[PostController::class,'update']);
+Route::get('posts/delete/{id}',[PostController::class,'delete']);
 
+Route::get('admin/product/add',[AdminController::class,'add']);
+Route::get('admin/product/update/{id}',[AdminController::class,'update']);
+Route::get('admin/product/show',[AdminController::class,'show']);
+Route::get('admin/product/add',[AdminController::class,'add']);

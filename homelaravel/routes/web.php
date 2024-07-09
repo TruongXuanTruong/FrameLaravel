@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -49,4 +50,12 @@ Route::get('posts/delete/{id}',[PostController::class,'delete']);
 Route::get('admin/product/add',[AdminController::class,'add']);
 Route::get('admin/product/update/{id}',[AdminController::class,'update']);
 Route::get('admin/product/show',[AdminController::class,'show']);
-Route::get('admin/product/add',[AdminController::class,'add']);
+Route::get('admin/product/delete/{id}',[AdminController::class,'delete']);
+
+//ELOQUENT ORM
+// Route::get('posts/read',function(){
+//     $post = Post::all();
+//     return $post;
+// });
+
+Route::get('posts/read',[PostController::class,'read']);

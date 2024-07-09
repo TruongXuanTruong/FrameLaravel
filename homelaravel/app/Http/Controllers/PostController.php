@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
 use Illuminate\Http\Request;
 
@@ -94,5 +95,33 @@ class PostController extends Controller
         return DB::table('posts')
         ->where('id',$id)
         ->delete();
+    }
+
+    function read(){
+        // $post = Post::all();
+        // echo"<pre>";
+        // print_r($post);
+        // echo "</pre>";
+        // return $post;
+
+        // $post = Post::where('title', 'like','%iphone%')->get();
+        // $post = Post::where('user_id', 2)->first();
+
+        // $post = Post::find(2);
+        // $post = Post::find([2,7]);
+        // $post = Post::orderBy('votes','desc')
+        // ->get();
+
+
+        // $post = Post::selectRaw("COUNT('id') as number_posts,user_id")
+        // ->groupBy('user_id')
+        // ->orderBy('number_posts','desc')
+        // ->get();
+
+
+        $post = Post::limit(2)
+        ->offset(1)
+        ->get();
+        return $post;
     }
 }

@@ -84,17 +84,41 @@ class PostController extends Controller
         echo "</pre>";
     }
     function update($id){
-        DB::table('posts')
-        ->where('id',$id)
-        ->update([
-            'title' => 'Macbook 2024',
-            'votes' => 20
-        ]);
+
+        $post=Post::where('id',$id)
+        ->update(
+            [
+                'title' => 'Create',
+                'content' => 'Content',
+                'user_id' => 3,
+                'votes' =>30
+            ]
+        );
     }
+
+
+
     function delete($id){
-        return DB::table('posts')
-        ->where('id',$id)
-        ->delete();
+
+
+        // $post = Post::find($id);
+        // $post->delete();
+
+        // Post::where('user_id',3)->delete();
+
+
+
+        // Post::destroy($id);
+
+        // Post::destroy([3,9]);
+
+
+
+        $post = Post::find($id);
+        $post->delete();
+
+        $post = Post::withTrashed()->find($id);
+        $post->restore();
     }
 
     function read(){
@@ -119,9 +143,29 @@ class PostController extends Controller
         // ->get();
 
 
-        $post = Post::limit(2)
-        ->offset(1)
+        // $post = Post::limit(2)
+        // ->offset(1)
+        // ->get();
+        // return $post;
+
+        // $post = Post::where('user_id',17)->first();
+
+        // return $post->title;
+
+
+
+
+        // $post = Post::where('title','like','%iphone%')->get();
+        // return $post;
+
+
+
+        $post = Post::withTrashed()
         ->get();
+
+        $post = Post::onlyTrashed()
+        ->get();
+
         return $post;
     }
 }

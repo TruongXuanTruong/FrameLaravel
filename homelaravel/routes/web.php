@@ -44,7 +44,7 @@ Route::get('demo', function(){
 // });
 Route::get('posts/add',[PostController::class, 'add']);
 Route::get('posts/show',[PostController::class,'show']);
-Route::get('posts/update',[PostController::class,'update']);
+Route::get('posts/update/{id}',[PostController::class,'update']);
 Route::get('posts/delete/{id}',[PostController::class,'delete']);
 
 Route::get('admin/product/add',[AdminController::class,'add']);
@@ -59,3 +59,4 @@ Route::get('admin/product/delete/{id}',[AdminController::class,'delete']);
 // });
 
 Route::get('posts/read',[PostController::class,'read']);
+Route::get('posts/add',[PostController::class,'read']);

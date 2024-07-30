@@ -168,4 +168,9 @@ class PostController extends Controller
 
         return $post;
     }
+    function permanentlyDelete($id){
+        Post::onlyTrashed()
+        ->where('id',$id)
+        ->forceDelete();
+    }
 }

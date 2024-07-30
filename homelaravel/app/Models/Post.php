@@ -11,4 +11,8 @@ class Post extends Model
     use HasFactory;
 
     use SoftDeletes;
+
+    function FeaturedImages(){
+        return $this->hasOne('App\FeaturedImages','p_id','p_id');
+    }
 }

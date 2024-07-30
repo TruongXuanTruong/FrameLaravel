@@ -60,3 +60,6 @@ Route::get('admin/product/delete/{id}',[AdminController::class,'delete']);
 
 Route::get('posts/read',[PostController::class,'read']);
 Route::get('posts/add',[PostController::class,'read']);
+
+
+Route::get('posts/permanentlydelete/{id}',[PostController::class,'permanentlyDelete']);

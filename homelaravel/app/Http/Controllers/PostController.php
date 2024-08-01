@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -160,13 +161,34 @@ class PostController extends Controller
 
 
 
-        $post = Post::withTrashed()
-        ->get();
+        // $post = Post::withTrashed()
+        // ->get();
 
-        $post = Post::onlyTrashed()
-        ->get();
+        // $post = Post::onlyTrashed()
+        // ->get();
+
+        // return $post;
+
+
+
+        // $img = Post::find(2)
+        // ->FeatureImages;
+
+        // return $img;
+
+
+        $user = Post::find(2)
+        ->user;
+
+        $post = User::find(2)
+        ->post;
 
         return $post;
+    }
+    function restore($id){
+        Post::onlyTrashed()
+        ->where('id',$id)
+        ->restore();
     }
     function permanentlyDelete($id){
         Post::onlyTrashed()

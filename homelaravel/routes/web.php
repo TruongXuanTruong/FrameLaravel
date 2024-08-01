@@ -7,6 +7,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminPostController;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\FeaturedImagesController;
+use App\Http\Controllers\RoleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,3 +66,8 @@ Route::get('posts/add',[PostController::class,'read']);
 
 
 Route::get('posts/permanentlydelete/{id}',[PostController::class,'permanentlyDelete']);
+
+
+Route::get('images/read',[FeaturedImagesController::class,'read']);
+
+Route::get('role/show',[RoleController::class,'show']);

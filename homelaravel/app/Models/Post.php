@@ -12,7 +12,12 @@ class Post extends Model
 
     use SoftDeletes;
 
+
+    protected $fillabe = ['title','content','user_id','votes'];
     function FeaturedImages(){
-        return $this->hasOne('App\FeaturedImages','p_id','p_id');
+        return $this->hasOne('App\FeaturedImages');
+    }
+    function user(){
+        return $this->belongsTo('App\User');
     }
 }

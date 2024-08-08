@@ -12,9 +12,29 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     function add(){
-        DB::table('posts') -> insert(
-            ['title' => 'Post 3','content' => 'Content 3', 'user_id' => 17]
-        );
+        // DB::table('posts') -> insert(
+        //     ['title' => 'Post 3','content' => 'Content 3', 'user_id' => 17]
+        // );
+
+        return view('post.create');
+    }
+    function store(Request $request){
+        $request->validate([
+            [
+                'title'=>'required',
+                'content'=>'required'
+            ],
+
+            [
+                'required'=>':attribute không được để trống',
+            ],
+
+            [
+                'title'=>'Tiêu Đề',
+                'content'=>'Nội Dung'
+            ]
+        ]);
+        return $request->input();
     }
     function show(){
 

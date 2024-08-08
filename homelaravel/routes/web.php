@@ -26,48 +26,55 @@ Route::get('/', function () {
 });
 
 
-Route::get('demo', function(){
-    $users = array(
-        1 => array(
-            'name' => 'Trương Xuân Trường'
-        ),
-        2 => array(
-            'name' => 'Hoàng Anh'
-        ),
-        3 => array(
-            'name' => 'Hoàng'
-        ),
-    );
-    return view('demo', compact('users'));
-});
-// Route::get('users/insert',function(){
-//     DB::table('users')->insert(
-//         ['name' => 'Trần Anh','email' => 'trananh22@gmail.com','password' => bcrypt('truong')]
+// Route::get('demo', function(){
+//     $users = array(
+//         1 => array(
+//             'name' => 'Trương Xuân Trường'
+//         ),
+//         2 => array(
+//             'name' => 'Hoàng Anh'
+//         ),
+//         3 => array(
+//             'name' => 'Hoàng'
+//         ),
 //     );
+//     return view('demo', compact('users'));
 // });
-Route::get('posts/add',[PostController::class, 'add']);
-Route::get('posts/show',[PostController::class,'show']);
-Route::get('posts/update/{id}',[PostController::class,'update']);
-Route::get('posts/delete/{id}',[PostController::class,'delete']);
+// // Route::get('users/insert',function(){
+// //     DB::table('users')->insert(
+// //         ['name' => 'Trần Anh','email' => 'trananh22@gmail.com','password' => bcrypt('truong')]
+// //     );
+// // });
+// Route::get('posts/add',[PostController::class, 'add']);
+// Route::get('posts/show',[PostController::class,'show']);
+// Route::get('posts/update/{id}',[PostController::class,'update']);
+// Route::get('posts/delete/{id}',[PostController::class,'delete']);
 
-Route::get('admin/product/add',[AdminController::class,'add']);
-Route::get('admin/product/update/{id}',[AdminController::class,'update']);
-Route::get('admin/product/show',[AdminController::class,'show']);
-Route::get('admin/product/delete/{id}',[AdminController::class,'delete']);
+// Route::get('admin/product/add',[AdminController::class,'add']);
+// Route::get('admin/product/update/{id}',[AdminController::class,'update']);
+// Route::get('admin/product/show',[AdminController::class,'show']);
+// Route::get('admin/product/delete/{id}',[AdminController::class,'delete']);
 
-//ELOQUENT ORM
-// Route::get('posts/read',function(){
-//     $post = Post::all();
-//     return $post;
-// });
+// //ELOQUENT ORM
+// // Route::get('posts/read',function(){
+// //     $post = Post::all();
+// //     return $post;
+// // });
 
-Route::get('posts/read',[PostController::class,'read']);
-Route::get('posts/add',[PostController::class,'read']);
-
-
-Route::get('posts/permanentlydelete/{id}',[PostController::class,'permanentlyDelete']);
+// Route::get('posts/read',[PostController::class,'read']);
+// Route::get('posts/add',[PostController::class,'read']);
 
 
-Route::get('images/read',[FeaturedImagesController::class,'read']);
+// Route::get('posts/permanentlydelete/{id}',[PostController::class,'permanentlyDelete']);
 
-Route::get('role/show',[RoleController::class,'show']);
+
+// Route::get('images/read',[FeaturedImagesController::class,'read']);
+
+// Route::get('role/show',[RoleController::class,'show']);
+
+#FORM
+Route::get('post/add',[PostController::class,'add']);
+
+Route::get('user/reg',function(){
+    return view('user/reg');
+});

@@ -34,9 +34,41 @@ class PostController extends Controller
                 'content'=>'Nội Dung'
             ]
         ]);
-        return $request->input();
+
+
+        $input = $request->all();
+        // return $request->input();
+        if($request->hasFile('file')){
+            $file = $request->file;
+
+            //Lấy tên file
+            $filename = $file->getClientOriginalName();
+
+            echo $file->getClientOriginalName();
+
+
+            //lấy đuôi file
+            echo $file->getClientOriginalExtension();
+            echo "<br>";
+            //Lấy kích thước file
+            echo $file->getSize();
+            echo "<br>";
+
+            $file ->move('public/uploads',$file ->getClientOriginalName());
+            $thumbnail = 'public/uploads/'.$filename;
+
+            $input['thumnail'] = $thumbnail;
+        }
+        $input['user_id'] = 14;
+        Post::created($input);
+
+
+        return redirect('post.show')->with('status','Thêm bài viết thành công !');
     }
     function show(){
+
+
+        return redirect()->away('https://github.com/TruongXuanTruong');
 
             // $posts = DB::table('posts')->select('title','content')->get();
             // foreach($posts as $post){

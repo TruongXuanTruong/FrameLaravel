@@ -16,7 +16,7 @@
                     @endforeach
                 </div>
             @endif --}}
-            {!! Form::open(['url' => 'post/store','method' => 'POST']) !!}
+            {!! Form::open(['route' => 'posts.store','method' => 'POST']) !!}
                 <div class="mb-3">
                     {!! Form::textarea('title', '', ['class'=>'form-control','placeholder'=>'Tiêu Đề']) !!}
                     @error('title')
@@ -28,6 +28,9 @@
                     @error('content')
                         <small class="form-text text-danger">{{$message}}</small>
                     @enderror
+                </div>
+                <div class="mb-3">
+                    {!! Form::file('file', ['class'=>'form-control-file']) !!}
                 </div>
                 <div class="mb-3">
                     {!! Form::submit('Thêm Mới', ['name'=>'sm-add','class'=>'btn btn-dark']) !!}

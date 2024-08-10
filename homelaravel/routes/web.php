@@ -74,6 +74,13 @@ Route::get('/', function () {
 
 #FORM
 Route::get('post/add',[PostController::class,'add']);
+Route::post('/post/store', [PostController::class, 'store'])->name('posts.store');
+
+Route::get('post/show',[PostController::class,'show'])->name('post.show');
+
+Route::get('helper/url',[PostController::class,'url']);
+
+
 
 Route::get('user/reg',function(){
     return view('user/reg');

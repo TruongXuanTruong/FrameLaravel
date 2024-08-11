@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminPostController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\FeaturedImagesController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\HelperController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,7 @@ Route::get('post/show',[PostController::class,'show'])->name('post.show');
 
 Route::get('helper/url',[PostController::class,'url']);
 
+Route::get('helper/string',[HelperController::class,'string']);
 
 
 Route::get('user/reg',function(){

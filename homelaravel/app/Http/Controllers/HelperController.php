@@ -79,5 +79,27 @@ class HelperController extends Controller
         // echo Str::of($str)->substr(8);
 
         echo Str::of($str)->substr(0, 7);
+
+        //7. Nối chuỗi vào sau đuôi
+
+        echo Str::of('Xuân')->append('Trường');
+
+        //.8 Tìm kiếm thay thế chuỗi
+
+        $str = "Laravel 10x";
+
+        echo Str::of($str)->replace('10x','9x');
+
+        //9. Cắt chuỗi với số ký tự cho trước
+
+        $str = "HLV Kim Sang-sik lên danh sách triệu tập tuyển U22 Việt Nam";
+
+        echo Str::of($str)->limit(60);
+
+        // 10. Kiểm tra chuỗi cha chứa chuỗi con
+
+        $str = "Xuantruong.vn Học Web để đi làm";
+
+        echo Str::contains($str, 'làm');
     }
 }

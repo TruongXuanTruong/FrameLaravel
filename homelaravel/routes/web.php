@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\FeaturedImagesController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\CookieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,3 +89,13 @@ Route::get('helper/string',[HelperController::class,'string']);
 Route::get('user/reg',function(){
     return view('user/reg');
 });
+
+
+//Session
+Route::get('session/add',[SessionController::class,'add']);
+Route::get('session/show',[SessionController::class,'show']);
+Route::get('session/add_flash',[SessionController::class,'add_flash']);
+Route::get('session/delete',[SessionController::class,'delete']);
+//Cookie
+Route::get('cookie/set',[CookieController::class,'set']);
+Route::get('cookie/get',[CookieController::class,'get']);

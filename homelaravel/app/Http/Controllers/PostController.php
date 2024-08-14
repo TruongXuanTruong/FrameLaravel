@@ -127,14 +127,23 @@ class PostController extends Controller
         // ->orderBy('votes','desc')
         // ->get();
 
-        $post = DB::table('posts')
-        ->offset(2)
-        ->limit(3)
-        ->get();
+        // $post = DB::table('posts')
+        // ->offset(2)
+        // ->limit(3)
+        // ->get();
 
-        echo "<pre>";
-        print_r($post);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($post);
+        // echo "</pre>";
+
+
+        //Query Builder
+        // $post = DB::table('posts')->simplepaginate(4);
+
+        //ORM
+        $post = Post::where('id','>',3)->oderby('id','desc')->paginate(4);
+
+        return view('post.index',compact('posts'));
     }
     function update($id){
 

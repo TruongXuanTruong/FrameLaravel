@@ -141,7 +141,10 @@ class PostController extends Controller
         // $post = DB::table('posts')->simplepaginate(4);
 
         //ORM
-        $post = Post::where('id','>',3)->oderby('id','desc')->paginate(4);
+        $post = Post::Paginate(5);
+
+        $post->withPath('demo');
+        // $post = Post::where('id','>',3)->oderby('id','desc')->paginate(4);
 
         return view('post.index',compact('posts'));
     }

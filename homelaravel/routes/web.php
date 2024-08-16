@@ -12,6 +12,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CookieController;
+use App\Http\Controllers\DemoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,3 +100,5 @@ Route::get('session/delete',[SessionController::class,'delete']);
 //Cookie
 Route::get('cookie/set',[CookieController::class,'set']);
 Route::get('cookie/get',[CookieController::class,'get']);
+
+Route::get('demo/sendmail',[DemoController::class,'sendmail']);

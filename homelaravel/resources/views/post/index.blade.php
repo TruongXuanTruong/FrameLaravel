@@ -18,8 +18,8 @@
             @foreach ($posts as $post)
             <li>
                 <a href="">{{$post->title}}</a> <br>
-                <img src="{{url($post->thumnail)}}" alt="">
-                <p>{{$post->content}}</p>
+                {{-- <img src="{{url($post->thumnail)}}" alt=""> --}}
+                <p>{!!$post->content!!}</p>
             </li>
             @endforeach
         </ul>

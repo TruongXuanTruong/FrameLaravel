@@ -67,8 +67,9 @@ class PostController extends Controller
     }
     function show(){
 
+        return view('post/index');
 
-        return redirect()->away('https://github.com/TruongXuanTruong');
+        return redirect()->away('http://127.0.0.1:8000/public');
 
             // $posts = DB::table('posts')->select('title','content')->get();
             // foreach($posts as $post){
@@ -141,12 +142,12 @@ class PostController extends Controller
         // $post = DB::table('posts')->simplepaginate(4);
 
         //ORM
-        $post = Post::Paginate(5);
+        // $post = Post::Paginate(5);
 
-        $post->withPath('demo');
-        // $post = Post::where('id','>',3)->oderby('id','desc')->paginate(4);
+        // $post->withPath('demo');
+        // // $post = Post::where('id','>',3)->oderby('id','desc')->paginate(4);
 
-        return view('post.index',compact('posts'));
+        // return view('post.index',compact('posts'));
     }
     function update($id){
 

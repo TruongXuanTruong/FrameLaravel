@@ -1,22 +1,29 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <title>Trang Sản Phẩm</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-    </head>
-    <body>
-        <h1>Hiển thị thông tin sản phẩm có id: {{$id}}, giá : {{$price}}, color : {{$colors[0]}}</h1>
-    </body>
-</html>
+@extends('layouts.shop')
+
+@section('content')
+<div class="container mt-5">
+    <h1 class="text-center">Shop</h1>
+
+
+
+        <div class="row">
+            @foreach ($products as $product)
+            <div class="col-md-3">
+
+                    <div class="product-card">
+                        <img src="{{ asset($product->thumbnail) }}" alt="Product 1">
+                        <a href="">{{$product->name}}</a>
+                    <p>
+                        <span class="price">{{number_format($product->price,0,'','.')}}</span>
+                        <span class="old-price">800.000đ</span>
+                    </p>
+                        <a href="{{route('cart.add', $product->id)}}"><button class="btn btn-danger">Thêm vào giỏ hàng</button></a>
+                </div>
+
+            </div>
+            @endforeach
+        </div>
+
+</div>
+
+@endsection

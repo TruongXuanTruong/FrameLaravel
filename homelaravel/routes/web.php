@@ -13,6 +13,7 @@ use App\Http\Controllers\HelperController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,15 @@ use App\Http\Controllers\DemoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/',[ProductController::class,'show']);
 
+Route::get('cart/show',[CartController::class,'show']);
+
+Route::get('cart/add/{id}',[CartController::class,'add'])->name('cart.add');
 // Route::get('demo', function(){
 //     $users = array(
 //         1 => array(
@@ -77,32 +82,32 @@ Route::get('/', function () {
 // Route::get('role/show',[RoleController::class,'show']);
 
 #FORM
-Route::get('post/add',[PostController::class,'add']);
-Route::post('/post/store', [PostController::class, 'store'])->name('posts.store');
+// Route::get('post/add',[PostController::class,'add']);
+// Route::post('/post/store', [PostController::class, 'store'])->name('posts.store');
 
-Route::get('post/show',[PostController::class,'show'])->name('post.show');
+// Route::get('post/show',[PostController::class,'show'])->name('post.show');
 
-Route::get('helper/url',[PostController::class,'url']);
+// Route::get('helper/url',[PostController::class,'url']);
 
-Route::get('helper/string',[HelperController::class,'string']);
-
-
-Route::get('user/reg',function(){
-    return view('user/reg');
-});
+// Route::get('helper/string',[HelperController::class,'string']);
 
 
-//Session
-Route::get('session/add',[SessionController::class,'add']);
-Route::get('session/show',[SessionController::class,'show']);
-Route::get('session/add_flash',[SessionController::class,'add_flash']);
-Route::get('session/delete',[SessionController::class,'delete']);
-//Cookie
-Route::get('cookie/set',[CookieController::class,'set']);
-Route::get('cookie/get',[CookieController::class,'get']);
+// Route::get('user/reg',function(){
+//     return view('user/reg');
+// });
 
-Route::get('demo/sendmail',[DemoController::class,'sendmail']);
 
-Route::group(['prefix' => 'laravel-filemanager'], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
-});
+// //Session
+// Route::get('session/add',[SessionController::class,'add']);
+// Route::get('session/show',[SessionController::class,'show']);
+// Route::get('session/add_flash',[SessionController::class,'add_flash']);
+// Route::get('session/delete',[SessionController::class,'delete']);
+// //Cookie
+// Route::get('cookie/set',[CookieController::class,'set']);
+// Route::get('cookie/get',[CookieController::class,'get']);
+
+// Route::get('demo/sendmail',[DemoController::class,'sendmail']);
+
+// Route::group(['prefix' => 'laravel-filemanager'], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });

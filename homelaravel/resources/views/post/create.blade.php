@@ -96,6 +96,7 @@
                     {!! Form::submit('Thêm Mới', ['name'=>'sm-add','class'=>'btn btn-dark']) !!}
                 </div>
             {!! Form::close() !!}
+            <img src="{{ asset('img/iphone11.jpg') }}">
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlAI3UPSbDkwZ8f7HAI7bNXQblbHH1/VThpG5yD4OUe57kz4y4I30+JlE0I" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiSkKK9e1b6HA4kL/2zP0G8H/5rL+B6arvcOmY0TjJRQqu6B0nUPLaqE4" crossorigin="anonymous"></script>

@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    function show($id){
-        // return "Thông tin sản phẩm id: ".$id;
+    function show(){
+        $products = Product::all();
 
-        $price = 400000;
+        // return $product;
 
-        $colors = ['red','blue'];
-        return view('product.show', compact('id','price','colors'));
+        return view('product.show',compact('products'));
     }
-    function create(){
-        return "Thêm sản phẩm mới";
-    }
-    function update($id){
-        return "Update sản phẩm có id: ".$id;
-    }
+
+
 }

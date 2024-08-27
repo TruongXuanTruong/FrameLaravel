@@ -18,7 +18,7 @@
                         <a href="{{url('/')}}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpHUPklZgP5yoT7NPck4lF_zF39qvGCKIxFg&s" height="26px" alt=""></a>
                     </div>
                     <div class="col-md-8 ">
-                        <a href="{{url('cart/show')}}" class="py-2 d-block float-right text-danger">Giỏ Hàng</a>
+                        <a href="{{url('cart/show')}}" class="py-2 d-block float-right text-danger">Giỏ Hàng({{Cart::count()}})</a>
                     </div>
                 </div>
             </div>

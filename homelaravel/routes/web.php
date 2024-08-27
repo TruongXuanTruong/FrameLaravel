@@ -35,6 +35,13 @@ Route::get('/',[ProductController::class,'show']);
 Route::get('cart/show',[CartController::class,'show']);
 
 Route::get('cart/add/{id}',[CartController::class,'add'])->name('cart.add');
+
+
+Route::get('cart/remove/{rowId}',[CartController::class,'remove'])->name('cart.remove');
+
+Route::get('cart/destroy',[CartController::class,'destroy'])->name('cart.destroy');
+
+Route::post('cart/update',[CartController::class,'update'])->name('cart.update');
 // Route::get('demo', function(){
 //     $users = array(
 //         1 => array(

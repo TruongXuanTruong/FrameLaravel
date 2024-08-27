@@ -21,6 +21,8 @@ class CartController extends Controller
         // print_r(Cart::content());
         // echo "</pre>";
 
+        // Cart::destroy();
+
         $product = Product::find($id);
         // return $product;
         Cart::add([
@@ -28,8 +30,26 @@ class CartController extends Controller
             'name' => $product->name,
             'qty' => 1,
             'price' => $product->price,
-            // 'options' => ['size' => 'large']
+            'options' => ['thumbnail' =>$product->thumbnail]
         ]);
+
+        return redirect('cart/show');
+    }
+    function remove($rowID){
+        Cart::remove($rowID);
+
+        return redirect('cart/show');
+    }
+    function destroy(){
+        Cart::destroy();
+        return redirect('cart/show');
+    }
+    function update(Request $request){
+        $quantities = $request->input('qty');
+
+        foreach ($quantities as $rowId => $quantity) {
+            Cart::update($rowId, $quantity);
+        }
 
         return redirect('cart/show');
     }
